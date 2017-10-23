@@ -13,7 +13,7 @@ describe 'Registered user visits the root page' do
     fill_in 'session[username]', with: user.username
     fill_in 'session[password]', with: user.password
 
-    click_on "Log In"
+    click_on "Submit"
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, SquattyPotty25")
