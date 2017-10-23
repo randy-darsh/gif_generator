@@ -9,6 +9,29 @@
   </head>
 
   <body>
+  <!-- Navbar ================================================== -->
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">GIF GENERATOR</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active"><%= link_to "Gifs", gifs_path %></li>
+            <li><%= link_to "Create Account", new_user_path %></li>
+            <li><%= link_to "Log In", login_path %></li>
+            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
     <%= yield %>
   </body>
 </html>
