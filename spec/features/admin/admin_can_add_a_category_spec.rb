@@ -12,10 +12,10 @@ describe 'Admin visits the new catagory page' do
 
     visit new_admin_category_path
 
-    fill_in "name", with: "South Park"
+    fill_in "category[name]", with: "South Park"
 
-    click_on "Submit"
+    click_on "Create Category"
 
-    expect(current_path).to eq(category_path(Category.last))
+    expect(current_path).to eq(categories_path)
   end
 end
