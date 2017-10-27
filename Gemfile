@@ -39,6 +39,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
   gem 'launchy'
+  gem 'orderly'
   gem 'pry'
   gem 'pry-rails', :group => :development
   gem 'rspec-rails'
