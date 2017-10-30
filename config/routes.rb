@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :gifs, only: [:index, :create, :destroy]
   end
 
-  resources :categories, only: [:index, :show, :destroy]
+  resources :categories, only: [:index, :show]
 
   resources :gifs, only: [:index]
 
