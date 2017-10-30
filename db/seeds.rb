@@ -3,7 +3,7 @@ Category.destroy_all
 Gif.destroy_all
 
 User.create(username: "user", password: "password")
-User.create(username: "admin", password: "password", role: 1)
+User.create(username: "admin", password: "admin", role: 1)
 category = Category.create(name: "Randy Savage")
 category.gifs.create(image_path: "https://media.giphy.com/media/DtLEOehAWfwiY/giphy.gif")
 category.gifs.create(image_path: "https://media.giphy.com/media/lAy11oosV1cw8/giphy.gif")
