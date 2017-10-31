@@ -8,7 +8,7 @@ describe 'Admin visits the category index page' do
 
     visit categories_path
 
-    click_on "Delete"
+    click_on "Delete Category"
 
     expect(current_path).to eq(categories_path)
     expect(page).to_not have_content("Thing")
