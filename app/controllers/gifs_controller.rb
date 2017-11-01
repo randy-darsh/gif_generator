@@ -4,7 +4,7 @@ class GifsController < ApplicationController
       @user = User.find(params[:user_id])
       check_user
     else
-      @grouped_gifs = Gif.grouped_gifs.sort
+      @gifs = @user.gifs.all
     end
   end
 
@@ -12,7 +12,7 @@ class GifsController < ApplicationController
     user = User.find(params[:user_id])
     gif = Gif.find(params["gif_id"])
     user.favorite(gif)
-    flash[:success] = "Gif successfully favorited!"
+    flash[:notice] = "IT'S YOUR FAVORITE!"
     redirect_to gifs_path
   end
 
@@ -20,6 +20,7 @@ class GifsController < ApplicationController
     user = User.find(params[:user_id])
     gif = Gif.find(params[:id])
     user.unfavorite(gif)
+    flash[:notice] = "IT'S NOT YOUR FAVORITE"
     redirect_to user_gifs_path(user)
   end
 
@@ -29,7 +30,7 @@ class GifsController < ApplicationController
     if current_user != @user
       redirect_to root_path
     else
-      @grouped_gifs = @user.grouped_gifs.sort
+      @gifs = @user.gifs.all
     end
   end
 end
