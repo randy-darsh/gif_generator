@@ -1,12 +1,11 @@
-<h1>Gifs By Category</h1>
+<h1>Gifs</h1>
 
-<h2>
-<% @categories.each do |category| %>
+<% @gifs.each do |gif| %>
 <ul>
-  <%= category.name %>
-  <% category.gifs.each do |gif| %>
-   <img src=<%= gif.image_path %> height="200" width="200">
-  <% end %>
+  <li><%= gif.category.name %></li>
+  <img src=<%= gif.image_path %> height="200" width="200">
+  <li><%= link_to 'Delete', admin_gif_path(gif), method: :delete if current_user && current_user.admin? %></li>
+  <li><%= link_to 'Favorite', user_gifs_path(current_user.id, gif_id: gif.id), method: :post if current_user && current_user.gifs.include?(gif) == false %></li>
+  <li><%= link_to 'Unfavorite', user_gif_path(current_user, gif), method: :delete if current_user && current_user.gifs.include?(gif) %></li>
 </ul>
 <% end %>
-</h2>

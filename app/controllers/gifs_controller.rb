@@ -1,11 +1,7 @@
 class GifsController < ApplicationController
+
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      check_user
-    else
-      @gifs = @user.gifs.all
-    end
+    @gifs = Gif.all
   end
 
   def create
@@ -20,7 +16,7 @@ class GifsController < ApplicationController
     user = User.find(params[:user_id])
     gif = Gif.find(params[:id])
     user.unfavorite(gif)
-    flash[:notice] = "IT'S NOT YOUR FAVORITE"
+    flash[:notice] = "IT'S NOT YOUR FAVORITE!"
     redirect_to user_gifs_path(user)
   end
 

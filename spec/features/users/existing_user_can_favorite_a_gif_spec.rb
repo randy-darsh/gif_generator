@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Authenticated user visits the gifs index page' do
-  xit 'they can favorite a gif' do
+  it 'they can favorite a gif' do
     user = User.create(username: "person", password: "password", role: 0)
     category = Category.create(name: "Randy Savage")
     category.gifs.create(image_path: "https://media.giphy.com/media/DtLEOehAWfwiY/giphy.gif")
@@ -9,6 +9,9 @@ describe 'Authenticated user visits the gifs index page' do
 
     visit gifs_path
 
-    click_on favorite
+    click_on "Favorite"
+
+    expect(page).to have_content("IT'S YOUR FAVORITE!")
+    expect(page).to have_content("Unfavorite")
   end
 end

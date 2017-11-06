@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :gifs, only: [:index]
 
+  resources :favorites, only: [:create, :destroy, :index]
+
   namespace :admin do
     resources :categories, only: [:new, :create]
     resources :gifs, only: [:new, :create, :destroy]

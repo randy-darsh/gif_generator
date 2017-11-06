@@ -22,12 +22,11 @@ ActiveRecord::Schema.define(version: 20171030005202) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "gif_id"
+    t.bigint "user_id"
+    t.bigint "gif_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gif_id"], name: "index_favorites_on_gif_id"
-    t.index ["user_id", "gif_id"], name: "index_favorites_on_user_id_and_gif_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -47,4 +46,6 @@ ActiveRecord::Schema.define(version: 20171030005202) do
     t.integer "role", default: 0
   end
 
+  add_foreign_key "favorites", "gifs"
+  add_foreign_key "favorites", "users"
 end
