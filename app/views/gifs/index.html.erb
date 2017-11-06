@@ -1,9 +1,9 @@
 <h1>Gifs</h1>
 
 <% @gifs.each do |gif| %>
-    <%= gif.category.name %>
-    <img src=<%= gif.image_path %> height="200" width="200">
-    <%= link_to 'Delete', admin_gif_path(gif), method: :delete if current_user && current_user.admin? %>
-    <%= link_to 'Favorite', user_gifs_path(current_user.id, gif_id: gif.id), method: :post if current_user && current_user.gifs.include?(gif) == false %>
-    <%= link_to 'Unfavorite', user_gif_path(current_user, gif), method: :delete if current_user && current_user.gifs.include?(gif) %>
+  <%= gif.category.name %>
+  <img src=<%= gif.image_path %> height="200" width="200">
+  <%= link_to 'Delete', admin_gif_path(gif), method: :delete if current_user && current_user.admin? %>
+  <%= link_to 'Favorite', user_gifs_path(current_user.id, gif_id: gif.id), method: :post if current_user && current_user.gifs.include?(gif) == false %>
+  <%= link_to 'Unfavorite', user_gif_path(current_user, gif), method: :delete if current_user && current_user.gifs.include?(gif) %>
 <% end %>

@@ -17,7 +17,7 @@ class GifsController < ApplicationController
     gif = Gif.find(params[:id])
     user.unfavorite(gif)
     flash[:notice] = "IT'S NOT YOUR FAVORITE!"
-    redirect_to user_gifs_path(user)
+    redirect_to user_path(user)
   end
 
   private
