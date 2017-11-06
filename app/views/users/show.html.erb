@@ -1,5 +1,14 @@
 <h1>Welcome, <%= current_user.username %><h1>
-
-<% current_user.favorites.each do |gif| %>
-  <%= gif.image_path %>
-<% end %>
+<br>
+<h3>Here are your favorites:</h3>
+<br>
+<h4>
+  <% @favorites.each do |favorite| %>
+    <ul>
+      <% gif = favorite.gif %>
+      <li><%= gif.category.name %></li><br>
+      <li><img src="<%= gif.image_path %>"/></li>
+      <li><%= link_to 'Unfavorite', user_gif_path(current_user, gif), method: :delete %></li>
+    </ul>
+  <% end %>
+</h4>

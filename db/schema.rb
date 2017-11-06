@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20171030005202) do
 
   create_table "gifs", force: :cascade do |t|
     t.text "image_path"
+    t.text "search_term"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
